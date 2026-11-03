@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>สถิติสด · คุณเป็นนายหน้าสายไหน? · ANC Broker</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<style>
+:root{--navy:#29385a;--plum:#5d5086;--muted:#81828b;--paper:#f7f6f2;--line:#e4dfe7;--font:'Noto Sans Thai',Tahoma,sans-serif;--latin:'Outfit','Noto Sans Thai',Tahoma,sans-serif}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(ellipse at 80% 10%,#eeeaf1 0,transparent 50%),var(--paper);color:var(--navy);font-family:var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,p{margin:0}
+.wrap{min-height:100%;display:flex;flex-direction:column;padding:2.2vw 3vw 1.6vw;gap:1.8vw}
+.top{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-anc{font-family:var(--latin);font-weight:800;letter-spacing:-2px;font-size:36px;position:relative;padding-right:12px}
+.brand-anc i{font-style:normal;color:#9e85b9;font-size:25px;position:absolute;top:-5px;right:-2px}
+.brand-sub{font-family:var(--latin);font-size:12px;letter-spacing:2px;font-weight:600;border-left:1px solid #29385a22;padding-left:14px;line-height:1.4}
+.brand-sub span{display:block;font-family:var(--font);font-size:11px;letter-spacing:0;font-weight:500;color:var(--muted)}
+.live{display:flex;align-items:center;gap:10px;font-family:var(--latin);font-size:14px;letter-spacing:1.5px;color:#8a809a}
+.live i{width:10px;height:10px;border-radius:50%;background:#4f9d72;box-shadow:0 0 0 0 #4f9d7266;animation:pulse 2s infinite}
+.live.off i{background:#c9a0a0;animation:none}
+.main{flex:1;display:grid;grid-template-columns:1fr 340px;gap:2.6vw;align-items:stretch}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:1.6vw}
+.eyebrow{font-family:var(--latin);font-size:13px;letter-spacing:2.4px;color:#8a809a;display:flex;gap:9px;align-items:center}
+.eyebrow:before{content:'';width:7px;height:7px;border-radius:50%;background:#b19cc7}
+h1{font-size:clamp(34px,3.6vw,58px);line-height:1.3;letter-spacing:-1.5px;margin-top:8px}
+h1 span{color:var(--plum)}
+.count{text-align:right;flex-shrink:0}
+.count b{display:block;font-family:var(--latin);font-size:clamp(56px,6vw,96px);font-weight:700;line-height:1;color:var(--plum);letter-spacing:-2px}
+.count span{font-size:18px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2vw}
+.card{background:#fffdfb;border:1px solid var(--line);border-radius:22px;padding:18px 16px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;overflow:hidden}
+.card.lead{border-color:#b9a6cc;box-shadow:0 0 0 2px #b9a6cc55,0 14px 36px #49405b10}
+.card .badge{position:absolute;top:12px;left:12px;font-family:var(--latin);font-size:11px;letter-spacing:1.4px;font-weight:600;color:#fff;background:#77658e;border-radius:20px;padding:4px 10px;display:none}
+.card.lead .badge{display:block}
+.avatar{width:min(9vw,130px);aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.avatar svg{width:112%;height:112%}
+.card h2{font-size:clamp(20px,1.7vw,28px);line-height:1.4}
+.card .nick{font-size:15px;color:var(--muted);margin-top:2px}
+.pct{font-family:var(--latin);font-size:clamp(34px,3.2vw,52px);font-weight:700;margin-top:10px;line-height:1}
+.bar{width:100%;height:10px;border-radius:6px;background:#efedf2;margin-top:12px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:6px;transition:width .8s ease}
+.n{font-size:14px;color:var(--muted);margin-top:8px}
+.side{display:flex;flex-direction:column;gap:1.4vw}
+.panel{background:#fffdfb;border:1px solid var(--line);border-radius:22px;padding:20px 22px}
+.panel h3{font-size:18px;margin:0 0 12px;line-height:1.5}
+.qr{display:flex;flex-direction:column;align-items:center;text-align:center;background:#343153;border-color:#343153;color:#fff}
+.qr h3{color:#fff;font-size:22px;margin-bottom:14px}
+.qr-box{background:#fff;border-radius:14px;padding:10px;width:200px;height:200px;display:flex;align-items:center;justify-content:center}
+.qr-box svg{width:100%;height:100%}
+.qr p{font-family:var(--latin);font-size:15px;margin-top:12px;color:#d9d3e6;letter-spacing:.3px}
+.big{font-family:var(--latin);font-size:46px;font-weight:700;color:var(--plum);line-height:1}
+.big small{font-family:var(--font);font-size:16px;font-weight:500;color:var(--muted);margin-left:8px}
+.sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.6}
+.need{margin-top:12px}
+.need div{display:flex;justify-content:space-between;gap:10px;font-size:15px;line-height:1.5}
+.need div b{font-family:var(--latin);font-weight:600;flex-shrink:0}
+.need .bar{height:8px;margin:6px 0 12px}
+.need .bar i{background:#9c8caf}
+.empty{font-size:15px;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;font-size:12px;color:#9a94a2}
+@keyframes pulse{0%{box-shadow:0 0 0 0 #4f9d7266}70%{box-shadow:0 0 0 10px #4f9d7200}100%{box-shadow:0 0 0 0 #4f9d7200}}
+@media(max-width:1100px){.main{grid-template-columns:1fr}.side{display:grid;grid-template-columns:repeat(3,1fr)}.cards{grid-template-columns:repeat(5,1fr)}}
+@media(max-width:760px){.wrap{padding:18px}.head{flex-direction:column;align-items:flex-start}.count{text-align:left}.cards{grid-template-columns:repeat(2,1fr)}.side{grid-template-columns:1fr}.avatar{width:96px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><span class="brand-anc">ANC<i>✳</i></span><span class="brand-sub">BROKER<span>เพื่อนคู่คิดนายหน้า</span></span></div><div class="live" id="live"><i></i><span id="live-text">LIVE · กำลังโหลด</span></div></header>
+<main class="main">
+<section>
+<div class="head"><div><span class="eyebrow">AIA 2026 · THE PERSONA EDITION</span><h1>ตอนนี้ในงาน มีนายหน้า<br><span>สายไหนบ้าง?</span></h1></div><div class="count"><b id="total">–</b><span>คนร่วมเล่นแล้ว</span></div></div>
+<div class="cards" id="cards"></div>
+</section>
+<aside class="side">
+<div class="panel qr"><h3>คุณเป็นสายไหน? สแกนเลย</h3><div class="qr-box" id="qr"></div><p>anc-persona-aia.vercel.app</p></div>
+<div class="panel"><h3>สนใจเข้าร่วม Open House</h3><div class="big" id="attend">–</div><p class="sub" id="attend-sub"></p></div>
+<div class="panel"><h3>อยากให้ ANC ช่วยเรื่องไหนมากที่สุด</h3><div class="need" id="needs"><p class="empty">รอคำตอบแรก</p></div></div>
+</aside>
+</main>
+<footer class="foot"><span>ANC Broker · LINE @ancagent · ใบอนุญาตนายหน้าประกันวินาศภัย ว00039/2551</span><span>ผลลัพธ์เพื่อความสนุก ไม่ใช่การประเมินความสามารถ</span></footer>
+</div>
+<script>
+'use strict';
+const STATS_URL='https://script.google.com/macros/s/AKfycbybxI64_o7Lts20kEf1uhx4rY42G2Fd2cW50bP6FT-0TDrLlG83PQHHJkz8qF8JKcO_/exec?stats=1';
+const GAME_URL='https://anc-persona-aia.vercel.app/';
+const personas=[
+{id:'lion',label:'สายลุย',nickname:'นักล่าเคส',accent:'#e89759',halo:'#f6d5a9'},
+{id:'owl',label:'สายรอบรู้',nickname:'นักวางแผน',accent:'#a393d8',halo:'#d8cef2'},
+{id:'elephant',label:'สายดูแล',nickname:'เพื่อนคู่ใจ',accent:'#6da9b9',halo:'#c5e0e5'},
+{id:'bee',label:'สายขยัน',nickname:'นักสร้างผลงาน',accent:'#91a47b',halo:'#d1dfbe'},
+{id:'fox',label:'สายสมาร์ท',nickname:'นักคิดทางลัด',accent:'#d99186',halo:'#f0c7bc'}
+];
+function mascot(id,extra=''){
+const start=`<svg class="mascot ${extra}" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true"><g stroke="#19395a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">`;
+const end='</g></svg>';
+const arts={
+lion:`<ellipse cx="121" cy="220" rx="67" ry="7" fill="#19395a" opacity=".07" stroke="none"/><path d="M60 216v-26c0-29 23-48 60-48s60 19 60 48v26" fill="#5378d2"/><path d="m95 153 25 28 25-28" fill="#fff8dc"/><path d="m115 178-5 23 10 11 10-11-5-23" fill="#f18455"/><path d="M82 196v20m76-20v20"/><path d="M70 142c-15-3-23-18-18-31-13-12-12-31 1-41-3-18 11-32 28-32 7-16 24-23 39-15 16-8 33-1 40 15 17 0 31 14 28 32 13 10 14 29 1 41 5 13-3 28-18 31-8 18-29 26-51 20-22 6-43-2-50-20Z" fill="#bc7042"/><path d="M62 83c-12-15-1-32 13-23m103 23c12-15 1-32-13-23" fill="#f5ba58"/><path d="M73 90c0-27 20-45 47-45s47 18 47 45v26c0 29-20 49-47 49s-47-20-47-49V90Z" fill="#f8c565"/><path d="m73 91 9-13m85 13-9-13M91 94l14-3m30 0 14 3"/><ellipse cx="99" cy="107" rx="4.5" ry="6.5" fill="#19395a" stroke="none"/><ellipse cx="141" cy="107" rx="4.5" ry="6.5" fill="#19395a" stroke="none"/><path d="M120 118c-21-12-40 1-30 19 6 13 21 13 30 8 9 5 24 5 30-8 10-18-9-31-30-19Z" fill="#fff1c5" stroke="none"/><path d="M112 116h16l-8 9-8-9Z" fill="#19395a"/><path d="M120 125v8m-10 0c5 6 15 6 20 0"/><circle cx="87" cy="120" r="6" fill="#ef9864" stroke="none" opacity=".65"/><circle cx="153" cy="120" r="6" fill="#ef9864" stroke="none" opacity=".65"/><path d="m111 61 9 6 10-8" stroke="#d9903d"/>`,
+owl:`<ellipse cx="122" cy="220" rx="63" ry="7" fill="#19395a" opacity=".07" stroke="none"/><path d="M81 91 63 38l46 25m50 28 18-53-46 25" fill="#9b8ac6"/><path d="M60 120c0-51 25-69 60-69s60 18 60 69v36c0 40-24 59-60 59s-60-19-60-59v-36Z" fill="#a497d1"/><path d="M72 109c0-19 12-31 29-31 9 0 15 4 19 10 4-6 10-10 19-10 17 0 29 12 29 31 0 24-19 46-48 63-29-17-48-39-48-63Z" fill="#f6eddb" stroke="none"/><circle cx="95" cy="114" r="22" fill="#fff9ef"/><circle cx="145" cy="114" r="22" fill="#fff9ef"/><path d="M117 111h6M73 105l-12-4m106 4 12-4"/><ellipse cx="97" cy="115" rx="4.5" ry="6.5" fill="#19395a" stroke="none"/><ellipse cx="143" cy="115" rx="4.5" ry="6.5" fill="#19395a" stroke="none"/><path d="m113 140 7 13 7-13" fill="#edb859"/><path d="m62 139-12 38 19 10m109-48 12 38-19 10" fill="#9381c0"/><path d="m120 180-39-15v47l39 10 39-10v-47l-39 15Z" fill="#416cad"/><path d="M120 180v42m-26-39 14 4m-14 7 14 4m24-11 14-4m-14 15 14-4" stroke="#e9e8f4" stroke-width="2.8"/><path d="m83 218-8 4m20-3-3 5m53-5 3 5m12-6 8 4"/>`,
+elephant:`<ellipse cx="122" cy="220" rx="69" ry="7" fill="#19395a" opacity=".07" stroke="none"/><path d="M67 218v-35c0-24 21-39 53-39s53 15 53 39v35" fill="#6c9db6"/><path d="m100 150 20 21 20-21" fill="#fcf7ea"/><path d="m117 171-6 23 9 10 9-10-6-23" fill="#e9a05d"/><path d="M77 70c-34-26-52 4-40 43 8 31 23 40 42 26m84-69c34-26 52 4 40 43-8 31-23 40-42 26" fill="#9cc6d7"/><path d="M67 86c-16-13-22 6-13 28 5 12 10 16 18 13m101-41c16-13 22 6 13 28-5 12-10 16-18 13" fill="#f1bdac" stroke="none"/><path d="M70 91c0-32 20-51 50-51s50 19 50 51v27c0 22-16 37-35 42l-2 14c-4 22-23 27-35 13-7-8-7-16-1-21 7-6 14 0 11 8 9 6 10-4 9-15-26-1-47-16-47-41V91Z" fill="#aacfdc"/><path d="m99 69 10-5m-17 35 13-3m30 0 13 3"/><ellipse cx="98" cy="109" rx="4" ry="6" fill="#19395a" stroke="none"/><ellipse cx="143" cy="109" rx="4" ry="6" fill="#19395a" stroke="none"/><path d="m121 129 12-1m-12 9 12-1" stroke="#6c9db6" stroke-width="2.5"/><path d="m86 135 4 14 10-11m54-3-4 14-10-11" fill="#fff8e6"/><circle cx="84" cy="122" r="6" fill="#e4a99c" stroke="none" opacity=".8"/><circle cx="157" cy="122" r="6" fill="#e4a99c" stroke="none" opacity=".8"/><path d="M70 189c-11-15 1-29 14-18 13-11 25 3 14 18l-14 13-14-13Z" fill="#f18467"/>`,
+bee:`<ellipse cx="122" cy="220" rx="65" ry="7" fill="#19395a" opacity=".07" stroke="none"/><path d="M72 133c-32-39-51-7-34 20 9 16 27 25 42 25m88-45c32-39 51-7 34 20-9 16-27 25-42 25" fill="#f8faf0"/><path d="M69 145c0-26 22-38 51-38s51 12 51 38v25c0 28-22 45-51 45s-51-17-51-45v-25Z" fill="#f6ca64"/><path d="M69 155h102v19H69v-19Z" fill="#33516a" stroke="none"/><path d="M78 193h84c-9 15-24 22-42 22s-33-7-42-22Z" fill="#33516a" stroke="none"/><path d="m100 113 20 23 20-23" fill="#fff9e8"/><path d="m116 136-4 15 8 8 8-8-4-15" fill="#f18a61"/><path d="M98 56 86 33m56 23 12-23"/><circle cx="83" cy="28" r="7" fill="#33516a"/><circle cx="157" cy="28" r="7" fill="#33516a"/><path d="M69 83c0-31 22-44 51-44s51 13 51 44-22 50-51 50-51-19-51-50Z" fill="#f8d578"/><path d="m88 76 15-3m34 0 15 3"/><ellipse cx="97" cy="87" rx="4.5" ry="6" fill="#19395a" stroke="none"/><ellipse cx="143" cy="87" rx="4.5" ry="6" fill="#19395a" stroke="none"/><path d="M107 102c8 10 18 10 26 0"/><circle cx="85" cy="100" r="7" fill="#ec9c75" stroke="none"/><circle cx="155" cy="100" r="7" fill="#ec9c75" stroke="none"/><path d="m88 212-6 11m70-11 6 11M68 168l-12 16m116-16 12 16"/>`,
+fox:`<ellipse cx="124" cy="220" rx="70" ry="7" fill="#19395a" opacity=".07" stroke="none"/><path d="M167 211c30 1 44-20 30-45 0 16-11 14-20 8-10 10-15 23-10 37Z" fill="#ee985b"/><path d="M192 187c8-4 8-11 5-21 0 13-8 14-14 11l9 10Z" fill="#fff0d9" stroke="none"/><path d="M68 215v-31c0-24 23-38 52-38s52 14 52 38v31" fill="#858ec4"/><path d="m100 152 20 25 20-25" fill="#fff5dc"/><path d="m116 174-5 22 9 11 9-11-5-22" fill="#e99361"/><path d="M71 84 56 28l53 34m60 22 15-56-53 34" fill="#e79054"/><path d="m71 66-6-20 22 18m66 0 22-18-6 20" fill="#f6c4ad" stroke="none"/><path d="M67 85c12-27 31-35 53-35s41 8 53 35l13 31-30 32-36 19-36-19-30-32 13-31Z" fill="#f1a15f"/><path d="M57 115c23-8 40 8 63 27 23-19 40-35 63-27l-27 33-36 19-36-19-27-33Z" fill="#fff1d9" stroke="none"/><path d="m87 90 17-3m32 0 17 3"/><ellipse cx="98" cy="103" rx="4.5" ry="6" fill="#19395a" stroke="none"/><ellipse cx="142" cy="103" rx="4.5" ry="6" fill="#19395a" stroke="none"/><path d="m112 138 8 9 8-9h-16Z" fill="#19395a"/><path d="M120 147v6m-8 0c5 5 11 5 16 0"/><circle cx="80" cy="118" r="6" fill="#df8260" stroke="none"/><circle cx="160" cy="118" r="6" fill="#df8260" stroke="none"/><path d="M82 196v18m76-18v18"/><rect x="155" y="173" width="24" height="34" rx="4" fill="#f8f4e5" transform="rotate(12 167 190)"/><path d="m163 182 9 2m-10 4 9 2" stroke-width="2.3"/>`
+};return start+(arts[id]||arts.lion)+end;
+}
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function drawCards(st){const tot=st.total||0;const counts=personas.map(p=>(st.persona||{})[p.label]||0);const max=Math.max(...counts);
+$('#cards').innerHTML=personas.map((p,i)=>{const n=counts[i],pct=tot?Math.round(n/tot*100):0;return `<div class="card ${tot&&n===max&&n>0?'lead':''}"><span class="badge">มากที่สุด</span><div class="avatar" style="background:${p.halo}">${mascot(p.id)}</div><h2>${p.label}</h2><p class="nick">${p.nickname}</p><div class="pct" style="color:${p.accent}">${pct}%</div><div class="bar"><i style="width:${pct}%;background:${p.accent}"></i></div><p class="n">${n} คน</p></div>`}).join('')}
+function draw(st){const tot=st.total||0;$('#total').textContent=tot.toLocaleString('th-TH');drawCards(st);
+const a=st.attend||{},yes=a['เข้าร่วม']||0,maybe=a['ไม่แน่ใจ']||0;$('#attend').innerHTML=tot?`${Math.round(yes/tot*100)}%<small>${yes} คน</small>`:'–';$('#attend-sub').textContent=tot?`และอีก ${maybe} คนกำลังตัดสินใจ`:'รอคำตอบแรก';
+const needs=Object.entries(st.need||{}).filter(([k])=>k&&k!=='อื่นๆ').sort((x,y)=>y[1]-x[1]).slice(0,3);
+$('#needs').innerHTML=needs.length?needs.map(([k,v])=>{const pct=tot?Math.round(v/tot*100):0;return `<div><span>${esc(k)}</span><b>${pct}%</b></div><div class="bar"><i style="width:${pct}%"></i></div>`}).join(''):'<p class="empty">รอคำตอบแรก</p>'}
+async function load(){try{const r=await fetch(STATS_URL,{cache:'no-store'});const st=await r.json();draw(st);const t=new Date();$('#live').classList.remove('off');$('#live-text').textContent='LIVE · อัปเดต '+t.toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'})+' น.'}catch(e){$('#live').classList.add('off');$('#live-text').textContent='กำลังเชื่อมต่อใหม่…'}}
+function drawQR(){try{const q=qrcode(0,'M');q.addData(GAME_URL);q.make();$('#qr').innerHTML=q.createSvgTag({cellSize:6,margin:0,scalable:true})}catch(e){$('#qr').innerHTML='<p style="color:#343153;font-size:14px;text-align:center">'+GAME_URL+'</p>'}}
+drawCards({total:0,persona:{}});drawQR();load();setInterval(load,60000);
+</script>
+</body>
+</html>
