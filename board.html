@@ -41,6 +41,7 @@ h1 span{color:var(--plum)}
 .card.lead .badge{display:block}
 .avatar{width:min(9vw,130px);aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
 .avatar svg{width:112%;height:112%}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid #fff}
 .card h2{font-size:clamp(20px,1.7vw,28px);line-height:1.4}
 .card .nick{font-size:15px;color:var(--muted);margin-top:2px}
 .pct{font-family:var(--latin);font-size:clamp(34px,3.2vw,52px);font-weight:700;margin-top:10px;line-height:1}
@@ -98,7 +99,7 @@ const personas=[
 {id:'bee',label:'สายขยัน',nickname:'นักสร้างผลงาน',accent:'#91a47b',halo:'#d1dfbe'},
 {id:'fox',label:'สายสมาร์ท',nickname:'นักคิดทางลัด',accent:'#d99186',halo:'#f0c7bc'}
 ];
-function mascot(id,extra=''){
+function mascotSvg(id,extra=''){
 const start=`<svg class="mascot ${extra}" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true"><g stroke="#19395a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">`;
 const end='</g></svg>';
 const arts={
@@ -109,6 +110,7 @@ bee:`<ellipse cx="122" cy="220" rx="65" ry="7" fill="#19395a" opacity=".07" stro
 fox:`<ellipse cx="124" cy="220" rx="70" ry="7" fill="#19395a" opacity=".07" stroke="none"/><path d="M167 211c30 1 44-20 30-45 0 16-11 14-20 8-10 10-15 23-10 37Z" fill="#ee985b"/><path d="M192 187c8-4 8-11 5-21 0 13-8 14-14 11l9 10Z" fill="#fff0d9" stroke="none"/><path d="M68 215v-31c0-24 23-38 52-38s52 14 52 38v31" fill="#858ec4"/><path d="m100 152 20 25 20-25" fill="#fff5dc"/><path d="m116 174-5 22 9 11 9-11-5-22" fill="#e99361"/><path d="M71 84 56 28l53 34m60 22 15-56-53 34" fill="#e79054"/><path d="m71 66-6-20 22 18m66 0 22-18-6 20" fill="#f6c4ad" stroke="none"/><path d="M67 85c12-27 31-35 53-35s41 8 53 35l13 31-30 32-36 19-36-19-30-32 13-31Z" fill="#f1a15f"/><path d="M57 115c23-8 40 8 63 27 23-19 40-35 63-27l-27 33-36 19-36-19-27-33Z" fill="#fff1d9" stroke="none"/><path d="m87 90 17-3m32 0 17 3"/><ellipse cx="98" cy="103" rx="4.5" ry="6" fill="#19395a" stroke="none"/><ellipse cx="142" cy="103" rx="4.5" ry="6" fill="#19395a" stroke="none"/><path d="m112 138 8 9 8-9h-16Z" fill="#19395a"/><path d="M120 147v6m-8 0c5 5 11 5 16 0"/><circle cx="80" cy="118" r="6" fill="#df8260" stroke="none"/><circle cx="160" cy="118" r="6" fill="#df8260" stroke="none"/><path d="M82 196v18m76-18v18"/><rect x="155" y="173" width="24" height="34" rx="4" fill="#f8f4e5" transform="rotate(12 167 190)"/><path d="m163 182 9 2m-10 4 9 2" stroke-width="2.3"/>`
 };return start+(arts[id]||arts.lion)+end;
 }
+function mascot(id,extra=''){return `<img class="mascot ${extra}" src="avatar-${id}.jpg" alt="" width="280" height="280" decoding="async">`}
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function drawCards(st){const tot=st.total||0;const counts=personas.map(p=>(st.persona||{})[p.label]||0);const max=Math.max(...counts);
