@@ -15,7 +15,7 @@
 html,body{height:100%}
 body{margin:0;background:radial-gradient(ellipse at 80% 10%,#eeeaf1 0,transparent 50%),var(--paper);color:var(--navy);font-family:var(--font);-webkit-font-smoothing:antialiased}
 h1,h2,p{margin:0}
-.wrap{min-height:100%;display:flex;flex-direction:column;padding:2.2vw 3vw 1.6vw;gap:1.8vw}
+.wrap{min-height:100%;display:flex;flex-direction:column;padding:1.6vw 3vw 1.2vw;gap:1.2vw}
 .top{display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:14px}
 .brand-anc{font-family:var(--latin);font-weight:800;letter-spacing:-2px;font-size:36px;position:relative;padding-right:12px}
@@ -26,7 +26,7 @@ h1,h2,p{margin:0}
 .live i{width:10px;height:10px;border-radius:50%;background:#4f9d72;box-shadow:0 0 0 0 #4f9d7266;animation:pulse 2s infinite}
 .live.off i{background:#c9a0a0;animation:none}
 .main{flex:1;display:grid;grid-template-columns:1fr 340px;gap:2.6vw;align-items:stretch}
-.head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:1.6vw}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:1.1vw}
 .eyebrow{font-family:var(--latin);font-size:13px;letter-spacing:2.4px;color:#8a809a;display:flex;gap:9px;align-items:center}
 .eyebrow:before{content:'';width:7px;height:7px;border-radius:50%;background:#b19cc7}
 h1{font-size:clamp(34px,3.6vw,58px);line-height:1.3;letter-spacing:-1.5px;margin-top:8px}
@@ -35,21 +35,22 @@ h1 span{color:var(--plum)}
 .count b{display:block;font-family:var(--latin);font-size:clamp(56px,6vw,96px);font-weight:700;line-height:1;color:var(--plum);letter-spacing:-2px}
 .count span{font-size:18px;color:var(--muted)}
 .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2vw}
-.card{background:#fffdfb;border:1px solid var(--line);border-radius:22px;padding:18px 16px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;overflow:hidden}
+.card{background:#fffdfb;border:1px solid var(--line);border-radius:22px;padding:14px 14px 14px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;overflow:hidden}
 .card.lead{border-color:#b9a6cc;box-shadow:0 0 0 2px #b9a6cc55,0 14px 36px #49405b10}
 .card .badge{position:absolute;top:12px;left:12px;font-family:var(--latin);font-size:11px;letter-spacing:1.4px;font-weight:600;color:#fff;background:#77658e;border-radius:20px;padding:4px 10px;display:none}
 .card.lead .badge{display:block}
-.avatar{width:min(9vw,130px);aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.avatar{width:min(7vw,104px);aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
 .avatar svg{width:112%;height:112%}
-.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid #fff}
+.avatar img{width:92%;height:92%;object-fit:contain;display:block;filter:drop-shadow(0 6px 8px #49405b22)}
 .card h2{font-size:clamp(20px,1.7vw,28px);line-height:1.4}
 .card .nick{font-size:15px;color:var(--muted);margin-top:2px}
-.pct{font-family:var(--latin);font-size:clamp(34px,3.2vw,52px);font-weight:700;margin-top:10px;line-height:1}
+.pct{font-family:var(--latin);font-size:clamp(30px,2.6vw,44px);font-weight:700;margin-top:6px;line-height:1}
 .bar{width:100%;height:10px;border-radius:6px;background:#efedf2;margin-top:12px;overflow:hidden}
 .bar i{display:block;height:100%;border-radius:6px;transition:width .8s ease}
 .n{font-size:14px;color:var(--muted);margin-top:8px}
 .side{display:flex;flex-direction:column;gap:1.4vw}
-.panel{background:#fffdfb;border:1px solid var(--line);border-radius:22px;padding:20px 22px}
+.insights{display:grid;grid-template-columns:1fr 1fr;gap:1.2vw;margin-top:1.2vw}
+.panel{background:#fffdfb;border:1px solid var(--line);border-radius:22px;padding:16px 20px}
 .panel h3{font-size:18px;margin:0 0 12px;line-height:1.5}
 .qr{display:flex;flex-direction:column;align-items:center;text-align:center;background:#343153;border-color:#343153;color:#fff}
 .qr h3{color:#fff;font-size:22px;margin-bottom:14px}
@@ -62,13 +63,13 @@ h1 span{color:var(--plum)}
 .need{margin-top:12px}
 .need div{display:flex;justify-content:space-between;gap:10px;font-size:15px;line-height:1.5}
 .need div b{font-family:var(--latin);font-weight:600;flex-shrink:0}
-.need .bar{height:8px;margin:6px 0 12px}
+.need .bar{height:8px;margin:5px 0 9px}
 .need .bar i{background:#9c8caf}
 .empty{font-size:15px;color:var(--muted)}
 .foot{display:flex;justify-content:space-between;font-size:12px;color:#9a94a2}
 @keyframes pulse{0%{box-shadow:0 0 0 0 #4f9d7266}70%{box-shadow:0 0 0 10px #4f9d7200}100%{box-shadow:0 0 0 0 #4f9d7200}}
-@media(max-width:1100px){.main{grid-template-columns:1fr}.side{display:grid;grid-template-columns:repeat(3,1fr)}.cards{grid-template-columns:repeat(5,1fr)}}
-@media(max-width:760px){.wrap{padding:18px}.head{flex-direction:column;align-items:flex-start}.count{text-align:left}.cards{grid-template-columns:repeat(2,1fr)}.side{grid-template-columns:1fr}.avatar{width:96px}}
+@media(max-width:1100px){.main{grid-template-columns:1fr}.side{display:grid;grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(5,1fr)}}
+@media(max-width:760px){.insights{grid-template-columns:1fr}.wrap{padding:18px}.head{flex-direction:column;align-items:flex-start}.count{text-align:left}.cards{grid-template-columns:repeat(2,1fr)}.side{grid-template-columns:1fr}.avatar{width:96px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -79,11 +80,12 @@ h1 span{color:var(--plum)}
 <section>
 <div class="head"><div><span class="eyebrow">AIA 2026 · THE PERSONA EDITION</span><h1>ตอนนี้ในงาน มีนายหน้า<br><span>สายไหนบ้าง?</span></h1></div><div class="count"><b id="total">–</b><span>คนร่วมเล่นแล้ว</span></div></div>
 <div class="cards" id="cards"></div>
+<div class="insights"><div class="panel"><h3>3 อันดับประกันที่สนใจ</h3><div class="need" id="types"><p class="empty">รอคำตอบแรก</p></div></div>
+<div class="panel"><h3>สิ่งที่ให้ความสำคัญเป็นอันดับ 1</h3><div class="need" id="prio"><p class="empty">รอคำตอบแรก</p></div></div></div>
 </section>
 <aside class="side">
 <div class="panel qr"><h3>คุณเป็นสายไหน? สแกนเลย</h3><div class="qr-box" id="qr"></div><p>anc-persona-aia.vercel.app</p></div>
 <div class="panel"><h3>สนใจเข้าร่วม Open House</h3><div class="big" id="attend">–</div><p class="sub" id="attend-sub"></p></div>
-<div class="panel"><h3>อยากให้ ANC ช่วยเรื่องไหนมากที่สุด</h3><div class="need" id="needs"><p class="empty">รอคำตอบแรก</p></div></div>
 </aside>
 </main>
 <footer class="foot"><span>ANC Broker · LINE @ancagent · ใบอนุญาตนายหน้าประกันวินาศภัย ว00039/2551</span><span>ผลลัพธ์เพื่อความสนุก ไม่ใช่การประเมินความสามารถ</span></footer>
@@ -110,15 +112,18 @@ bee:`<ellipse cx="122" cy="220" rx="65" ry="7" fill="#19395a" opacity=".07" stro
 fox:`<ellipse cx="124" cy="220" rx="70" ry="7" fill="#19395a" opacity=".07" stroke="none"/><path d="M167 211c30 1 44-20 30-45 0 16-11 14-20 8-10 10-15 23-10 37Z" fill="#ee985b"/><path d="M192 187c8-4 8-11 5-21 0 13-8 14-14 11l9 10Z" fill="#fff0d9" stroke="none"/><path d="M68 215v-31c0-24 23-38 52-38s52 14 52 38v31" fill="#858ec4"/><path d="m100 152 20 25 20-25" fill="#fff5dc"/><path d="m116 174-5 22 9 11 9-11-5-22" fill="#e99361"/><path d="M71 84 56 28l53 34m60 22 15-56-53 34" fill="#e79054"/><path d="m71 66-6-20 22 18m66 0 22-18-6 20" fill="#f6c4ad" stroke="none"/><path d="M67 85c12-27 31-35 53-35s41 8 53 35l13 31-30 32-36 19-36-19-30-32 13-31Z" fill="#f1a15f"/><path d="M57 115c23-8 40 8 63 27 23-19 40-35 63-27l-27 33-36 19-36-19-27-33Z" fill="#fff1d9" stroke="none"/><path d="m87 90 17-3m32 0 17 3"/><ellipse cx="98" cy="103" rx="4.5" ry="6" fill="#19395a" stroke="none"/><ellipse cx="142" cy="103" rx="4.5" ry="6" fill="#19395a" stroke="none"/><path d="m112 138 8 9 8-9h-16Z" fill="#19395a"/><path d="M120 147v6m-8 0c5 5 11 5 16 0"/><circle cx="80" cy="118" r="6" fill="#df8260" stroke="none"/><circle cx="160" cy="118" r="6" fill="#df8260" stroke="none"/><path d="M82 196v18m76-18v18"/><rect x="155" y="173" width="24" height="34" rx="4" fill="#f8f4e5" transform="rotate(12 167 190)"/><path d="m163 182 9 2m-10 4 9 2" stroke-width="2.3"/>`
 };return start+(arts[id]||arts.lion)+end;
 }
-function mascot(id,extra=''){return `<img class="mascot ${extra}" src="avatar-${id}.jpg" alt="" width="280" height="280" decoding="async">`}
+function mascot(id,extra=''){return `<img class="mascot ${extra}" src="avatar-${id}.webp" alt="" width="360" height="360" decoding="async">`}
+const TYPES=['รถยนต์ · EV · มอเตอร์ไซค์','สุขภาพ · มะเร็ง · อุบัติเหตุ','เดินทางและศึกษาต่อต่างประเทศ','บ้าน · คอนโด · ของมีค่า','สัตว์เลี้ยงและกิจกรรมเฉพาะ','ไซเบอร์และความรับผิดส่วนบุคคล','ร้านค้า · สำนักงาน · โรงงาน (ธุรกิจ)','รถธุรกิจและการขนส่ง (ธุรกิจ)','ก่อสร้างและเครื่องจักร (ธุรกิจ)','สวัสดิการพนักงาน — สุขภาพ/อุบัติเหตุกลุ่ม (ธุรกิจ)','ความรับผิดของธุรกิจ (ธุรกิจ)','ไซเบอร์ · เงิน · สินเชื่อ (ธุรกิจ)','ประกันเฉพาะทาง — เกษตร / พลังงาน / อีเวนต์','ยังไม่แน่ใจ อยากฟังภาพรวมก่อน'];
+const PRIO=['เบี้ยประกันแข่งขันได้','ความคุ้มครองดี มีหลายบริษัทให้เลือก','บริษัทประกันน่าเชื่อถือ','บริการหลังการขายและดูแลเคลม','คอมมิชชันดี จ่ายเร็ว','ระบบใช้งานง่าย ออกใบเสนอราคา/กรมธรรม์เร็ว','ทีมซัพพอร์ต อบรม และสื่อการขายพร้อมใช้'];
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function drawCards(st){const tot=st.total||0;const counts=personas.map(p=>(st.persona||{})[p.label]||0);const max=Math.max(...counts);
 $('#cards').innerHTML=personas.map((p,i)=>{const n=counts[i],pct=tot?Math.round(n/tot*100):0;return `<div class="card ${tot&&n===max&&n>0?'lead':''}"><span class="badge">มากที่สุด</span><div class="avatar" style="background:${p.halo}">${mascot(p.id)}</div><h2>${p.label}</h2><p class="nick">${p.nickname}</p><div class="pct" style="color:${p.accent}">${pct}%</div><div class="bar"><i style="width:${pct}%;background:${p.accent}"></i></div><p class="n">${n} คน</p></div>`}).join('')}
 function draw(st){const tot=st.total||0;$('#total').textContent=tot.toLocaleString('th-TH');drawCards(st);
 const a=st.attend||{},yes=a['เข้าร่วม']||0,maybe=a['ไม่แน่ใจ']||0;$('#attend').innerHTML=tot?`${Math.round(yes/tot*100)}%<small>${yes} คน</small>`:'–';$('#attend-sub').textContent=tot?`และอีก ${maybe} คนกำลังตัดสินใจ`:'รอคำตอบแรก';
-const needs=Object.entries(st.need||{}).filter(([k])=>k&&k!=='อื่นๆ').sort((x,y)=>y[1]-x[1]).slice(0,3);
-$('#needs').innerHTML=needs.length?needs.map(([k,v])=>{const pct=tot?Math.round(v/tot*100):0;return `<div><span>${esc(k)}</span><b>${pct}%</b></div><div class="bar"><i style="width:${pct}%"></i></div>`}).join(''):'<p class="empty">รอคำตอบแรก</p>'}
+top3('#types',st.types,TYPES,tot);const r1=st.rank1||{};top3('#prio',r1,PRIO,Object.entries(r1).filter(([k])=>PRIO.includes(k)).reduce((a,[,v])=>a+v,0))}
+function top3(sel,obj,allowed,base){const list=Object.entries(obj||{}).filter(([k])=>allowed.includes(k)).sort((x,y)=>y[1]-x[1]).slice(0,3);
+$(sel).innerHTML=list.length?list.map(([k,v])=>{const pct=base?Math.round(v/base*100):0;return `<div><span>${esc(k)}</span><b>${pct}%</b></div><div class="bar"><i style="width:${pct}%"></i></div>`}).join(''):'<p class="empty">รอคำตอบแรก</p>'}
 async function load(){try{const r=await fetch(STATS_URL,{cache:'no-store'});const st=await r.json();draw(st);const t=new Date();$('#live').classList.remove('off');$('#live-text').textContent='LIVE · อัปเดต '+t.toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'})+' น.'}catch(e){$('#live').classList.add('off');$('#live-text').textContent='กำลังเชื่อมต่อใหม่…'}}
 function drawQR(){try{const q=qrcode(0,'M');q.addData(GAME_URL);q.make();$('#qr').innerHTML=q.createSvgTag({cellSize:6,margin:0,scalable:true})}catch(e){$('#qr').innerHTML='<p style="color:#343153;font-size:14px;text-align:center">'+GAME_URL+'</p>'}}
 drawCards({total:0,persona:{}});drawQR();load();setInterval(load,60000);
